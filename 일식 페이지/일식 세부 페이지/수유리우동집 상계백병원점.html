@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>수유리우동집 상계백병원점 슬라이더</title>
+  <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+  <!-- 빨간 배너 -->
+  <div class="banner">
+    <button class="back-button" onclick="history.back()">일식 가게 리스트</button>
+  </div>
+  
+  <!-- 슬라이더 컨테이너 -->
+  <div class="slider-container">
+    <div class="slide-track" id="slideTrack">
+      <!-- 클론: 마지막 실제 슬라이드 (더블연어뱃살덮밥) -->
+      <div class="slide">
+        <img src="일식\일식 가게\수유리우동집 상 계백 병원점 메뉴\어묵우동.jpg" alt="어묵우동">
+      </div>
+      <!-- 실제 슬라이드들 (1번 ~ 5번) -->
+      <div class="slide">
+        <img src="일식\일식 간판\수유리우동집 상계백병원점.jfif" alt="간판">
+      </div>
+      <div class="slide">
+        <img src="일식\일식 가게\수유리우동집 상 계백 병원점 메뉴\수유김밥.jpg" alt="수유김밥">
+      </div>
+      <div class="slide">
+        <img src="일식\일식 가게\수유리우동집 상 계백 병원점 메뉴\참치김밥.jpg" alt="참치김밥">
+      </div>
+      <div class="slide">
+        <img src="일식\일식 가게\수유리우동집 상 계백 병원점 메뉴\우동.jpg" alt="우동">
+      </div>
+      <div class="slide">
+        <img src="일식\일식 가게\수유리우동집 상 계백 병원점 메뉴\얼큰우동.jpg" alt="얼큰우동">
+      </div>
+      <div class="slide">
+        <img src="일식\일식 가게\수유리우동집 상 계백 병원점 메뉴\어묵우동.jpg" alt="어묵우동">
+      </div>
+      <!-- 클론: 첫 번째 실제 슬라이드 (간판) -->
+      <div class="slide">
+        <img src="일식\일식 간판\수유리우동집 상계백병원점.jfif" alt="간판">
+      </div>
+    </div>
+    <!-- 좌우 화살표 버튼 -->
+    <button class="arrow left" id="prevBtn">&#10094;</button>
+    <button class="arrow right" id="nextBtn">&#10095;</button>
+  </div>
+  <!-- 가게 정보 -->
+  <div class="store-info">
+    <h2 class="store-name">수유리우동집 상계백병원점</h2>
+    <p class="store-details">
+      주소: 서울 노원구 동일로 1361 주공 2단지 상가 113호<br>
+      운영시간: 10:30 ~ 22:00 / 일요일 휴무<br>
+      대표메뉴: 우동, 소바<br>
+      전화번호: 02-930-9485<br><br>
+      <span class="partnership"> [ 우동, 잔치면 곱빼기 제공 ] </span>
+    </p>
+  </div>
+  
+  <!-- 대표 메뉴 섹션 (이미지 포함) -->
+  <div class="menu-section">
+    <h3 class="menu-section-title">대표 메뉴</h3>
+    <div class="menu-grid">
+      <!-- 메뉴 아이템 1 -->
+      <div class="menu-item">
+        <img class="menu-image" src="일식\일식 가게\수유리우동집 상 계백 병원점 메뉴\수유김밥.jpg" alt="수유김밥">
+        <div class="menu-name">수유김밥</div>
+        <div class="menu-price">₩3,500</div>
+      </div>
+      <!-- 메뉴 아이템 2 -->
+      <div class="menu-item">
+        <img class="menu-image" src="일식\일식 가게\수유리우동집 상 계백 병원점 메뉴\참치김밥.jpg" alt="참치김밥">
+        <div class="menu-name">참치김밥</div>
+        <div class="menu-price">₩4,500</div>
+      </div>
+      <!-- 메뉴 아이템 3 -->
+      <div class="menu-item">
+        <img class="menu-image" src="일식\일식 가게\수유리우동집 상 계백 병원점 메뉴\우동.jpg" alt="우동">
+        <div class="menu-name">우동</div>
+        <div class="menu-price">₩6,000</div>
+      </div>
+      <!-- 메뉴 아이템 4 -->
+      <div class="menu-item">
+        <img class="menu-image" src="일식\일식 가게\수유리우동집 상 계백 병원점 메뉴\얼큰우동.jpg" alt="얼큰우동">
+        <div class="menu-name">얼큰우동</div>
+        <div class="menu-price">₩7,000</div>
+      </div>
+      <!-- 메뉴 아이템 5 -->
+      <div class="menu-item">
+        <img class="menu-image" src="일식\일식 가게\수유리우동집 상 계백 병원점 메뉴\어묵우동.jpg" alt="어묵우동">
+        <div class="menu-name">어묵우동</div>
+        <div class="menu-price">₩7,500</div>
+      </div>
+      <!-- 메뉴 아이템 6 -->
+      <div class="menu-item">
+        <img class="menu-image" src="일식\일식 가게\수유리우동집 상 계백 병원점 메뉴\매생이우동.jpg" alt="매생이우동">
+        <div class="menu-name">매생이우동</div>
+        <div class="menu-price">₩7,500</div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 일반 메뉴 섹션 (텍스트 전용, 5열 그리드) -->
+  <div class="normal-menu-section">
+    <br>
+    <h3 class="normal-menu-title">메뉴</h3>
+    <br>
+    <div class="normal-menu-grid">
+
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">수유김밥</div>
+        <div class="normal-menu-price">3,500원</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">참치김밥</div>
+        <div class="normal-menu-price">4,500원</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">스팸김밥</div>
+        <div class="normal-menu-price">4,500원</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">얼큰우동</div>
+        <div class="normal-menu-price">7,000원</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">매생이우동</div>
+        <div class="normal-menu-price">7,500원</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">어묵우동</div>
+        <div class="normal-menu-price">7,500원</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">우동</div>
+        <div class="normal-menu-price">6,000원</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">쫄면</div>
+        <div class="normal-menu-price">7,000원</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">비빔국수</div>
+        <div class="normal-menu-price">7,000원</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">잔치국수</div>
+        <div class="normal-menu-price">7,500원</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">비빔밥</div>
+        <div class="normal-menu-price">8,000원</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">짜장면</div>
+        <div class="normal-menu-price">6,000원</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">짜장밥</div>
+        <div class="normal-menu-price">7,000원</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">갈비만두</div>
+        <div class="normal-menu-price">4,500원</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">왕만두</div>
+        <div class="normal-menu-price">7,000원</div>
+      </div>
+      
+      
+      
+    </div>
+  </div>
+
+  <div class="directions-section" style="text-align: center;">
+    <br>
+    <h2 class="directions-title" style="color: darkgreen;">찾아오시는 길</h2>
+    <br>
+    <img class="directions-image" src="일식\NaverMap_JapanList\수유리우동집 상계백병원점 길찾기.png" width="982" height="487" alt="찾아오시는 길" style="display: block; margin: 0 auto;">
+  </div>
+  <br><br><br><br>
+  
+  <script>
+    const slideTrack = document.getElementById('slideTrack');
+    let slides = document.querySelectorAll('.slide');
+    
+    // 현재 실제 슬라이드 구조: 클론, [슬라이드1, 슬라이드2, ..., 슬라이드5], 클론
+    let currentIndex = 1;
+    
+    function getSlideWidth() {
+      return window.innerWidth / 3;
+    }
+    
+    function updateSlider(animate = true) {
+      const slideWidth = getSlideWidth();
+      const offset = currentIndex * slideWidth - ((window.innerWidth - slideWidth) / 2);
+      slideTrack.style.transition = animate ? "transform 0.5s ease" : "none";
+      slideTrack.style.transform = `translateX(-${offset}px)`;
+      
+      slides.forEach((slide, idx) => {
+        if (idx === currentIndex) {
+          slide.classList.add('active');
+        } else {
+          slide.classList.remove('active');
+        }
+      });
+    }
+    
+    updateSlider(false);
+    
+    function nextSlide() {
+      if (currentIndex < slides.length - 1) {
+        currentIndex++;
+        updateSlider();
+      }
+    }
+    
+    function prevSlide() {
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateSlider();
+      }
+    }
+    
+    slideTrack.addEventListener('transitionend', () => {
+      if (currentIndex === slides.length - 1) {
+        slideTrack.style.transition = "none";
+        currentIndex = 1;
+        updateSlider(false);
+      }
+      if (currentIndex === 0) {
+        slideTrack.style.transition = "none";
+        currentIndex = slides.length - 2;
+        updateSlider(false);
+      }
+    });
+    
+    document.getElementById('nextBtn').addEventListener('click', nextSlide);
+    document.getElementById('prevBtn').addEventListener('click', prevSlide);
+    
+    window.addEventListener('resize', () => {
+      updateSlider(false);
+    });
+  </script>
+</body>
+</html>

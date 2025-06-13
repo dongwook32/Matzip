@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>일식 가게 리스트</title>
+  <style>
+    /* 전체 페이지에 고정 배경 설정 */
+    body {
+      background: url("일식 세부 페이지/일식/background/거리1.jfif") no-repeat center center fixed;
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+    }
+    
+   .banner {
+      background-color: #c0392b;
+      color: white;
+      text-align: center;
+      height: 130px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 80px;
+      font-weight: 900;
+      margin: 0;
+    }
+
+    /* 원래 버튼의 최대폭 600px → 600px * 1.2 = 720px  
+       margin: 30px → 36px, padding: 20px → 24px 등 비례값으로 적용 */
+    .shop-button {
+      position: relative; /* 제휴업체 배지를 위한 기준 설정 */
+      display: flex;
+      align-items: center;
+      width: 90%;
+      max-width: 720px;
+      margin: 36px auto;
+      padding: 24px;
+      background-color: #f8f8f8;
+      border: 2px solid #ddd;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.3s;
+      text-align: left;
+    }
+
+    .shop-button:hover {
+      /* 살짝 연한 붉은색 배경 적용 */
+      background-color: #fff0f0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    /* 이미지 크기 100px → 120px, 오른쪽 여백 20px → 24px */
+    .shop-image {
+      width: 150px;
+      height: 150px;
+      background-color: #eee;
+      border-radius: 8px;
+      margin-right: 24px;
+      flex-shrink: 0;
+    }
+
+    .shop-info {
+      flex-grow: 1;
+    }
+
+    /* 글자 크기도 1.2배 (예: 20px → 24px) */
+    .shop-name {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 6px; /* 원래 5px → 6px */
+    }
+
+    /* 14px → 약 17px, margin-bottom: 6px → 7px 정도로 조정 */
+    .shop-loca,
+    .shop-hours,
+    .shop-menu,
+    .shop-phone {
+      font-size: 17px;
+      color: #444;
+      margin-bottom: 7px;
+    }
+
+    /* 배지 폰트도 14px → 17px, 위치값도 비례 조정 (top: 10px → 12px, right: 15px → 18px) */
+    .badge {
+      position: absolute;
+      top: 12px;
+      right: 18px;
+      background-color: transparent;
+      color: green;
+      font-weight: bold;
+      font-size: 17px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="banner">日 本</div>
+
+  <!-- 노원돈부리 버튼 (제휴업체) -->
+  <div class="shop-button" data-shop-page="일식 세부 페이지\노원돈부리.html">
+    <div class="shop-image">
+      <img src="일식 세부 페이지/일식\일식 간판\노원돈부리.jpg" alt="노원돈부리" style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
+    </div>
+    <div class="shop-info">
+      <div class="shop-name">노원돈부리</div>
+      <div class="shop-loca">주소: 서울 노원구 동일로 1343 동일프라자빌딩</div>
+      <div class="shop-hours">운영시간: 11:30 ~ 17:30 일,월 휴무</div>
+      <div class="shop-menu">대표 메뉴: 가츠동, 사케동</div>
+      <div class="shop-phone">전화번호: 02-937-1295</div>
+    </div>
+  </div>
+
+  <!-- 카레후카미&수제카츠 노원점 버튼 -->
+  <div class="shop-button" data-shop-page="일식 세부 페이지\카레후카미&수제카츠 노원점.html">
+    <div class="shop-image">
+      <img src="일식 세부 페이지/일식\일식 간판\카레후카미&수제카츠 노원점.jfif" alt="카레후카미&수제카츠 노원점" style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
+    </div>
+    <div class="shop-info">
+      <div class="shop-name">카레후카미&수제카츠 노원점</div>
+      <div class="shop-loca">주소: 서울 노원구 상계로10길 23 1층</div>
+      <div class="shop-hours">운영시간: 11:00 ~ 21:00</div>
+      <div class="shop-menu">대표 메뉴: 카레, 돈카츠</div>
+      <div class="shop-phone">전화번호: 0507-1313-2269</div>
+    </div>
+  </div>
+
+  <!-- 홋코리동 버튼 -->
+  <div class="shop-button" data-shop-page="일식 세부 페이지\홋코리동.html">
+    <div class="shop-image">
+      <img src="일식 세부 페이지/일식\일식 간판\홋코리동.jpg" alt="홋코리동" style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
+    </div>
+    <div class="shop-info">
+      <div class="shop-name">홋코리동</div>
+      <div class="shop-loca">주소: 서울 노원구 동일로218길 41 1층 103호</div>
+      <div class="shop-hours">운영시간: 11:00 ~ 21:00 일 휴무</div>
+      <div class="shop-menu">대표 메뉴: 규동, 사케동</div>
+      <div class="shop-phone">전화번호: 0507-1380-2140</div>
+    </div>
+  </div>
+
+  <!-- 스시웨이 노원점 버튼 -->
+  <div class="shop-button" data-shop-page="일식 세부 페이지\스시웨이 노원점.html">
+    <div class="shop-image">
+      <img src="일식 세부 페이지/일식\일식 간판\스시웨이 노원점.jpg" alt="스시웨이 노원점" style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
+    </div>
+    <div class="shop-info">
+      <div class="shop-name">스시웨이 노원점</div>
+      <div class="shop-loca">주소: 서울 노원구 동일로 1374 미산빌딩 2층</div>
+      <div class="shop-hours">운영시간: 11:30 ~ 22:00 (15:00 ~ 17:00 break time) 일 휴무</div>
+      <div class="shop-menu">대표 메뉴: 초밥, 롤</div>
+      <div class="shop-phone">전화번호: 0507-1410-3774</div>
+    </div>
+  </div>
+
+  <!-- 스시고칸 중계점 버튼 -->
+  <div class="shop-button" data-shop-page="일식 세부 페이지\스시고칸 중계점.html">
+    <div class="shop-image">
+      <img src="일식 세부 페이지/일식\일식 간판\스시고칸 중계점.jfif" alt="스시고칸 중계점" style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
+    </div>
+    <div class="shop-info">
+      <div class="shop-name">스시고칸 중계점</div>
+      <div class="shop-loca">주소: 서울 노원구 노원로 330 지하1층</div>
+      <div class="shop-hours">운영시간: 11:00 ~ 21:00 (매달 2, 4번째 일 휴무)</div>
+      <div class="shop-menu">대표 메뉴: 초밥</div>
+      <div class="shop-phone">전화번호: 0507-1310-7930</div>
+    </div>
+  </div>
+
+  <!-- 마카나이 노원점 버튼 -->
+  <div class="shop-button" data-shop-page="일식 세부 페이지\마카나이 노원점.html">
+    <div class="shop-image">
+      <img src="일식 세부 페이지/일식\일식 간판\마카나이 노원점.jfif" alt="마카나이 노원점" style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
+    </div>
+    <div class="shop-info">
+      <div class="shop-name">마카나이 노원점</div>
+      <div class="shop-loca">주소: 서울 노원구 상계로1길 14-29 1층</div>
+      <div class="shop-hours">운영시간: 11:30 ~ 21:00 일 휴무</div>
+      <div class="shop-menu">대표 메뉴: 라멘, 덮밥</div>
+      <div class="shop-phone">전화번호: 0507-1465-5032</div>
+    </div>
+  </div>
+
+  <!-- 수유리우동집 상계백병원점 버튼 (제휴업체) -->
+  <div class="shop-button" data-shop-page="일식 세부 페이지\수유리우동집 상계백병원점.html">
+    <div class="badge">제휴업체</div>
+    <div class="shop-image">
+      <img src="일식 세부 페이지/일식\일식 간판\수유리우동집 상계백병원점.jfif" alt="수유리우동집 상계백병원점" style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
+    </div>
+    <div class="shop-info">
+      <div class="shop-name">수유리우동집 상계백병원점</div>
+      <div class="shop-loca">주소: 서울 노원구 동일로 1361 주공 2단지 상가 113호</div>
+      <div class="shop-hours">운영시간: 10:30 ~ 22:00 일 휴무</div>
+      <div class="shop-menu">대표 메뉴: 우동, 소바</div>
+      <div class="shop-phone">전화번호: 02-930-9485</div>
+    </div>
+  </div>
+
+  <!-- 스시소리 버튼 -->
+  <div class="shop-button" data-shop-page="일식 세부 페이지\스시소리.html">
+    <div class="shop-image">
+      <img src="일식 세부 페이지/일식\일식 간판\스시소리.jfif" alt="스시소리" style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
+    </div>
+    <div class="shop-info">
+      <div class="shop-name">스시소리</div>
+      <div class="shop-loca">주소: 서울 노원구 중계로 202 1층</div>
+      <div class="shop-hours">운영시간: 11:30 ~ 21:30</div>
+      <div class="shop-menu">대표 메뉴: 초밥, 롤</div>
+      <div class="shop-phone">전화번호: 0507-1337-7794</div>
+    </div>
+  </div>
+
+  <!-- 수시로 스시 버튼 -->
+  <div class="shop-button" data-shop-page="일식 세부 페이지\수시로 스시.html">
+    <div class="shop-image">
+      <img src="일식 세부 페이지/일식\일식 간판\수시로 스시.jfif" alt="수시로 스시" style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
+    </div>
+    <div class="shop-info">
+      <div class="shop-name">수시로 스시</div>
+      <div class="shop-loca">주소: 서울 노원구 노원로 479 1층</div>
+      <div class="shop-hours">운영시간: 11:30 ~ 22:00 (15:00 ~ 16:30 break time)</div>
+      <div class="shop-menu">대표 메뉴: 초밥, 롤</div>
+      <div class="shop-phone">전화번호: 02-932-0725</div>
+    </div>
+  </div>
+
+  <!-- 밀알생돈까스 버튼 (제휴업체) -->
+  <div class="shop-button" data-shop-page="일식 세부 페이지\밀알생돈까스.html">
+    <div class="badge">제휴업체</div>
+    <div class="shop-image">
+      <img src="일식 세부 페이지/일식\일식 간판\밀알생돈까스.jfif" alt="밀알생돈까스" style="width:100%; height:100%; object-fit:cover; border-radius:8px;">
+    </div>
+    <div class="shop-info">
+      <div class="shop-name">밀알생돈까스</div>
+      <div class="shop-loca">주소: 서울 노원구 동일로 1356 상가동 213호</div>
+      <div class="shop-hours">운영시간: 11:00 ~ 20:30 일 휴무</div>
+      <div class="shop-menu">대표 메뉴: 돈까스</div>
+      <div class="shop-phone">전화번호: 0507-1401-5430</div>
+    </div>
+  </div>
+
+  <!-- 페이지 완전 로드 후 클릭 이벤트 등록 -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      document.querySelectorAll('.shop-button').forEach(function(button) {
+        var page = button.getAttribute('data-shop-page');
+        button.addEventListener('click', function () {
+          if (page) {
+            window.location.href = page;
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>

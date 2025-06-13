@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>수시로스시 슬라이더</title>
+  <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+  <!-- 빨간 배너 -->
+  <div class="banner">
+    <button class="back-button" onclick="history.back()">일식 가게 리스트</button>
+  </div>
+  
+  <!-- 슬라이더 컨테이너 -->
+  <div class="slider-container">
+    <div class="slide-track" id="slideTrack">
+      <!-- 클론: 마지막 실제 슬라이드 (더블연어뱃살덮밥) -->
+      <div class="slide">
+        <img src="일식\일식 가게\수시로 스시 메뉴\우나기동.jpg" alt="우나기동">
+      </div>
+      <!-- 실제 슬라이드들 (1번 ~ 5번) -->
+      <div class="slide">
+        <img src="일식\일식 간판\수시로 스시.jfif" alt="간판">
+      </div>
+      <div class="slide">
+        <img src="일식\일식 가게\수시로 스시 메뉴\모듬초밥.jfif" alt="모듬초밥">
+      </div>
+      <div class="slide">
+        <img src="일식\일식 가게\수시로 스시 메뉴\스페셜초밥.jfif" alt="특모듬초밥">
+      </div>
+      <div class="slide">
+        <img src="일식\일식 가게\수시로 스시 메뉴\후토마끼.jpg" alt="후토마끼">
+      </div>
+      <div class="slide">
+        <img src="일식\일식 가게\수시로 스시 메뉴\카이센동.jpg" alt="카이센동">
+      </div>
+      <div class="slide">
+        <img src="일식\일식 가게\수시로 스시 메뉴\우나기동.jpg" alt="우나기동">
+      </div>
+      <!-- 클론: 첫 번째 실제 슬라이드 (간판) -->
+      <div class="slide">
+        <img src="일식\일식 간판\수시로 스시.jfif" alt="간판">
+      </div>
+    </div>
+    <!-- 좌우 화살표 버튼 -->
+    <button class="arrow left" id="prevBtn">&#10094;</button>
+    <button class="arrow right" id="nextBtn">&#10095;</button>
+  </div>
+  
+  <!-- 가게 정보 -->
+  <div class="store-info">
+    <h2 class="store-name">수시로 스시</h2>
+    <p class="store-details">
+      주소: 서울 노원구 노원로 479 1층<br>
+      운영시간: 11:30 ~ 22:00 ( 15:00 ~ 16:30 break time )<br>
+      대표메뉴: 초밥, 롤<br>
+      전화번호: 02-932-0725
+    </p>
+  </div>
+  
+  <!-- 대표 메뉴 섹션 (이미지 포함) -->
+  <div class="menu-section">
+    <h3 class="menu-section-title">대표 메뉴</h3>
+    <div class="menu-grid">
+      <!-- 메뉴 아이템 1 -->
+      <div class="menu-item">
+        <img class="menu-image" src="일식\일식 가게\수시로 스시 메뉴\모듬초밥.jfif" alt="모듬초밥">
+        <div class="menu-name">모듬초밥</div>
+        <div class="menu-price">₩15,000</div>
+      </div>
+      <!-- 메뉴 아이템 2 -->
+      <div class="menu-item">
+        <img class="menu-image" src="일식\일식 가게\수시로 스시 메뉴\스페셜초밥.jfif" alt="스페셜초밥">
+        <div class="menu-name">스페셜초밥</div>
+        <div class="menu-price">₩21,000</div>
+      </div>
+      <!-- 메뉴 아이템 3 -->
+      <div class="menu-item">
+        <img class="menu-image" src="일식\일식 가게\수시로 스시 메뉴\후토마끼.jpg" alt="후토마끼">
+        <div class="menu-name">후토마끼</div>
+        <div class="menu-price">₩18,500</div>
+      </div>
+      <!-- 메뉴 아이템 4 -->
+      <div class="menu-item">
+        <img class="menu-image" src="일식\일식 가게\수시로 스시 메뉴\카이센동.jpg" alt="카이센동">
+        <div class="menu-name">카이센동</div>
+        <div class="menu-price">₩26,000</div>
+      </div>
+      <!-- 메뉴 아이템 5 -->
+      <div class="menu-item">
+        <img class="menu-image" src="일식\일식 가게\수시로 스시 메뉴\우나기동.jpg" alt="우나기동">
+        <div class="menu-name">우나기동</div>
+        <div class="menu-price">₩24,000</div>
+      </div>
+      <!-- 메뉴 아이템 6 -->
+      <div class="menu-item">
+        <img class="menu-image" src="일식\일식 가게\수시로 스시 메뉴\짬뽕정식.jpg" alt="짬뽕정식">
+        <div class="menu-name">짬뽕정식</div>
+        <div class="menu-price">₩14,800</div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 일반 메뉴 섹션 (텍스트 전용, 5열 그리드) -->
+  <div class="normal-menu-section">
+    <br>
+    <h3 class="normal-menu-title">메뉴</h3>
+    <br>
+    <div class="normal-menu-grid">
+
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">짬뽕정식</div>
+        <div class="normal-menu-price">14,800원</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">모둠초밥 13p</div>
+        <div class="normal-menu-price">15,000원</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">스페셜초밥 12p</div>
+        <div class="normal-menu-price">21,000원</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">후토마끼 5p</div>
+        <div class="normal-menu-price">12,000원</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">도시락A</div>
+        <div class="normal-menu-price">27,000원</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">도시락B</div>
+        <div class="normal-menu-price">23,500원</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">초밥&모밀 정식</div>
+        <div class="normal-menu-price">9,500원</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">사시미정식</div>
+        <div class="normal-menu-price">14,800원</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">어린이초밥 12p</div>
+        <div class="normal-menu-price">9,500원</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">오늘의초밥 10p</div>
+        <div class="normal-menu-price">11,000원</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">카이센동</div>
+        <div class="normal-menu-price">26,000원</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">마구로동</div>
+        <div class="normal-menu-price">26,000원</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">우나기동</div>
+        <div class="normal-menu-price">24,000원</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">마구로사케동</div>
+        <div class="normal-menu-price">24,500원</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">사케동</div>
+        <div class="normal-menu-price">17,000원</div>
+      </div>
+      
+    </div>
+  </div>
+
+  <div class="directions-section" style="text-align: center;">
+    <br>
+    <h2 class="directions-title" style="color: darkgreen;">찾아오시는 길</h2>
+    <br>
+    <img class="directions-image" src="일식\NaverMap_JapanList\수시로스시 길찾기.png" width="982" height="487" alt="찾아오시는 길" style="display: block; margin: 0 auto;">
+  </div>
+  <br><br><br><br>
+  
+  <script>
+    const slideTrack = document.getElementById('slideTrack');
+    let slides = document.querySelectorAll('.slide');
+    
+    // 현재 실제 슬라이드 구조: 클론, [슬라이드1, 슬라이드2, ..., 슬라이드5], 클론
+    let currentIndex = 1;
+    
+    function getSlideWidth() {
+      return window.innerWidth / 3;
+    }
+    
+    function updateSlider(animate = true) {
+      const slideWidth = getSlideWidth();
+      const offset = currentIndex * slideWidth - ((window.innerWidth - slideWidth) / 2);
+      slideTrack.style.transition = animate ? "transform 0.5s ease" : "none";
+      slideTrack.style.transform = `translateX(-${offset}px)`;
+      
+      slides.forEach((slide, idx) => {
+        if (idx === currentIndex) {
+          slide.classList.add('active');
+        } else {
+          slide.classList.remove('active');
+        }
+      });
+    }
+    
+    updateSlider(false);
+    
+    function nextSlide() {
+      if (currentIndex < slides.length - 1) {
+        currentIndex++;
+        updateSlider();
+      }
+    }
+    
+    function prevSlide() {
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateSlider();
+      }
+    }
+    
+    slideTrack.addEventListener('transitionend', () => {
+      if (currentIndex === slides.length - 1) {
+        slideTrack.style.transition = "none";
+        currentIndex = 1;
+        updateSlider(false);
+      }
+      if (currentIndex === 0) {
+        slideTrack.style.transition = "none";
+        currentIndex = slides.length - 2;
+        updateSlider(false);
+      }
+    });
+    
+    document.getElementById('nextBtn').addEventListener('click', nextSlide);
+    document.getElementById('prevBtn').addEventListener('click', prevSlide);
+    
+    window.addEventListener('resize', () => {
+      updateSlider(false);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>중식당 규규</title>
+  <style>
+    /* 기본 리셋 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      overflow-x: hidden;
+      font-family: Arial, sans-serif;
+    }
+    
+    /* 공통 버튼 스타일 */
+    button {
+      font-size: 20px;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    /* 빨간 배너 */
+    .banner {
+      background-color: darkred;
+      color: white;
+      position: relative;
+      padding: 40px;
+      margin-bottom: 20px;
+    }
+    .back-button {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: transparent;
+      color: white;
+    }
+    
+    /* 슬라이더 컨테이너: 화면 전체 폭 */
+    .slider-container {
+      position: relative;
+      width: 100vw;
+      overflow: hidden;
+    }
+    
+    /* 슬라이드 트랙: flex를 사용해 수평 배열 */
+    .slide-track {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+    
+    /* 각 슬라이드: 뷰포트의 1/3 너비, 정사각형 */
+    .slide {
+      width: 33.3333vw;
+      height: 33.3333vw;
+      flex-shrink: 0;
+      position: relative;
+    }
+    
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    
+    /* 현재(active) 슬라이드는 선명하게, 나머지는 흐릿하게 */
+    .slide:not(.active) {
+      filter: blur(4px) brightness(70%);
+    }
+    .slide.active {
+      filter: none;
+    }
+    
+    /* 좌우 화살표 버튼 */
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      color: white;
+      z-index: 10;
+    }
+    .arrow.left {
+      left: 10px;
+    }
+    .arrow.right {
+      right: 10px;
+    }
+    
+    /* 가게 정보 영역 */
+    .store-info {
+      max-width: 800px;
+      margin: 30px auto;
+      padding: 0 20px;
+      text-align: center;
+      color: black;
+    }
+    .store-name {
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      letter-spacing: 0.5px;
+    }
+    .store-details {
+      font-size: 20px;
+      line-height: 1.7;
+      letter-spacing: 0.5px;
+    }
+    
+    /* 대표 메뉴 섹션 (이미지 포함) */
+    .menu-section {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+    .menu-section-title {
+      font-size: 28px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      letter-spacing: 0.5px;
+    }
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-column-gap: 40px;  /* 가로 간격 증가 */
+      grid-row-gap: 30px;     /* 세로 간격 증가 */
+    }
+    .menu-item {
+      border: 1px solid #ddd;
+      padding: 10px;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+    }
+    .menu-image {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      display: block;
+    }
+    .menu-name {
+      font-size: 20px;
+      font-weight: bold;
+      margin-top: 10px;
+      letter-spacing: 0.5px;
+    }
+    .menu-price {
+      font-size: 18px;
+      margin-top: 5px;
+      color: #555;
+      letter-spacing: 0.5px;
+    }
+    
+    /* 일반 메뉴 섹션 (텍스트 전용, 5열 그리드) */
+    .normal-menu-section {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+    .normal-menu-title {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      letter-spacing: 0.3px;
+      text-align: center;
+    }
+    .normal-menu-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+      text-align: center;
+    }
+    .normal-menu-item {
+      /* 개별 박스 스타일 없이 간결하게 배치 */
+    }
+    .normal-menu-name {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 5px;
+      letter-spacing: 0.3px;
+    }
+    .normal-menu-price {
+      font-size: 14px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <!-- 빨간 배너 -->
+  <div class="banner">
+    <button class="back-button" onclick="history.back()">중식 가게 리스트</button>
+  </div>
+  
+  <!-- 슬라이더 컨테이너 -->
+  <div class="slider-container">
+    <div class="slide-track" id="slideTrack">
+      <!-- 클론: 마지막 실제 슬라이드 (더블연어뱃살덮밥) -->
+      <div class="slide">
+        <img src="중식\중식 가게\중식당 규규\탕수육.png" alt="탕수육">
+      </div>
+      <!-- 실제 슬라이드들 (1번 ~ 5번) -->
+      <div class="slide">
+        <img src="중식\중식 간판\중식당 규규.jpg" alt="간판">
+      </div>
+      <div class="slide">
+        <img src="중식\중식 가게\중식당 규규\자장면.jpg" alt="자장면">
+      </div>
+      <div class="slide">
+        <img src="중식\중식 가게\중식당 규규\탕수육.png" alt="탕수육">
+      </div>
+      <!-- 클론: 첫 번째 실제 슬라이드 (간판) -->
+      <div class="slide">
+        <img src="중식\중식 간판\중식당 규규.jpg" alt="간판">
+      </div>
+    </div>
+    <!-- 좌우 화살표 버튼 -->
+    <button class="arrow left" id="prevBtn">&#10094;</button>
+    <button class="arrow right" id="nextBtn">&#10095;</button>
+  </div>
+  
+  <!-- 가게 정보 -->
+  <div class="store-info">
+    <h2 class="store-name">중식당 규규</h2>
+    <p class="store-details">
+      주소: 서울 노원구 동일로 1356 401동상가<br>
+      운영시간: 11:00 ~ 22:00 
+            브레이크 타임 : 16:00~17:00
+            라스트 오더 : 21:20<br>
+      대표메뉴: 자장면, 짬뽕, 점심 특선 추천 요리<br>
+      전화번호: 070-7776-8333<br>
+      포장, 배달, 단체 이용 가능, 예약, 남/녀 화장실 구분, 무선 인터넷, 간편결제, 주차
+
+    </p>
+  </div>
+  
+  <!-- 대표 메뉴 섹션 (이미지 포함) -->
+  <div class="menu-section">
+    <h3 class="menu-section-title">대표 메뉴</h3>
+    <div class="menu-grid">
+      <!-- 메뉴 아이템 1 -->
+      <div class="menu-item">
+        <img class="menu-image" src="중식\중식 가게\중식당 규규\자장면.jpg"alt="자장면">
+        <div class="menu-name">자장면</div>
+        <div class="menu-price">₩7,000</div>
+      </div>
+      <!-- 메뉴 아이템 2 -->
+      <div class="menu-item">
+        <img class="menu-image" src="중식/중식 가게/\사진없을 시.jpg" alt="백짬뽕">
+        <div class="menu-name">백짬뽕</div>
+        <div class="menu-price">₩9,000</div>
+      </div>
+      <!-- 메뉴 아이템 3 -->
+      <div class="menu-item">
+        <img class="menu-image" src="중식/중식 가게/\사진없을 시.jpg" alt="우삼겹비빔면(여름한정메뉴)">
+        <div class="menu-name">우삼겹비빔면(여름한정메뉴)</div>
+        <div class="menu-price">₩11,000</div>
+      </div>
+      <!-- 메뉴 아이템 4 -->
+      <div class="menu-item">
+        <img class="menu-image" src="중식/중식 가게/\사진없을 시.jpg" alt="삼선냉짬뽕">
+        <div class="menu-name">삼선냉짬뽕(여름한정메뉴)</div>
+        <div class="menu-price">₩12,000</div>
+      </div>
+      <!-- 메뉴 아이템 5 -->
+      <div class="menu-item">
+        <img class="menu-image" src="중식/중식 가게/\사진없을 시.jpg" alt="짬뽕">
+        <div class="menu-name">짬뽕</div>
+        <div class="menu-price">₩9,000</div>
+      </div>
+      <!-- 메뉴 아이템 6 -->
+      <div class="menu-item">
+        <img class="menu-image" src="중식/중식 가게/\사진없을 시.jpg" alt="삼선우삼겹짬뽕">
+        <div class="menu-name">삼선우삼겹짬뽕</div>
+        <div class="menu-price">₩14,000</div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 일반 메뉴 섹션 (텍스트 전용, 5열 그리드) -->
+  <div class="normal-menu-section">
+    <br>
+    <h3 class="normal-menu-title">메뉴</h3>
+    <br>
+    <div class="normal-menu-grid">
+      <div class="normal-menu-item">     
+      <div class="normal-menu-name">토마토크림짬뽕</div>
+      <div class="normal-menu-price">₩12,000</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">우삼겹짬뽕</div>
+        <div class="normal-menu-price">₩14,000</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">삼선짬뽕</div>
+        <div class="normal-menu-price">₩12,000</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">크림짬뽕</div>
+        <div class="normal-menu-price">₩12,000</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">해물간짜장</div>
+        <div class="normal-menu-price">₩10,000</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">우삼겹볶음짜장</div>
+        <div class="normal-menu-price">₩11,000</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">해물볶음짜장</div>
+        <div class="normal-menu-price"> ₩11,000원</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">삼선굴짬뽕</div>
+        <div class="normal-menu-price">₩14,000원</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">굴짬뽕</div>
+        <div class="normal-menu-price">₩12,000원</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">계란볶음밥</div>
+        <div class="normal-menu-price">₩8,000원</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">연두부 마파두부밥(면으로 변경가능)</div>
+        <div class="normal-menu-price">₩11,000원</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">깐풍기육</div>
+        <div class="normal-menu-price">₩21,000원</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">깐풍기</div>
+        <div class="normal-menu-price">₩23,000원</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">생등심 탕수육</div>
+        <div class="normal-menu-price">₩20,000원</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">밥곱빼기, 면 곱빼기</div>
+        <div class="normal-menu-price">₩1,500/₩2,000원</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="directions-section" style="text-align: center;">
+    <br>
+    <h2 class="directions-title" style="color: darkgreen;">찾아오시는 길</h2>
+    <br>
+    <img class="directions-image" src="중식/NaverMap_ChinaList/중식당 규규.png" width="982" height="487" alt="찾아오시는 길" style="display: block; margin: 0 auto;">
+  </div>
+  <br><br><br><br>
+  
+  <script>
+    const slideTrack = document.getElementById('slideTrack');
+    let slides = document.querySelectorAll('.slide');
+    
+    // 현재 실제 슬라이드 구조: 클론, [슬라이드1, 슬라이드2, ..., 슬라이드5], 클론
+    let currentIndex = 1;
+    
+    function getSlideWidth() {
+      return window.innerWidth / 3;
+    }
+    
+    function updateSlider(animate = true) {
+      const slideWidth = getSlideWidth();
+      const offset = currentIndex * slideWidth - ((window.innerWidth - slideWidth) / 2);
+      slideTrack.style.transition = animate ? "transform 0.5s ease" : "none";
+      slideTrack.style.transform = `translateX(-${offset}px)`;
+      
+      slides.forEach((slide, idx) => {
+        if (idx === currentIndex) {
+          slide.classList.add('active');
+        } else {
+          slide.classList.remove('active');
+        }
+      });
+    }
+    
+    updateSlider(false);
+    
+    function nextSlide() {
+      if (currentIndex < slides.length - 1) {
+        currentIndex++;
+        updateSlider();
+      }
+    }
+    
+    function prevSlide() {
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateSlider();
+      }
+    }
+    
+    slideTrack.addEventListener('transitionend', () => {
+      if (currentIndex === slides.length - 1) {
+        slideTrack.style.transition = "none";
+        currentIndex = 1;
+        updateSlider(false);
+      }
+      if (currentIndex === 0) {
+        slideTrack.style.transition = "none";
+        currentIndex = slides.length - 2;
+        updateSlider(false);
+      }
+    });
+    
+    document.getElementById('nextBtn').addEventListener('click', nextSlide);
+    document.getElementById('prevBtn').addEventListener('click', prevSlide);
+    
+    window.addEventListener('resize', () => {
+      updateSlider(false);
+    });
+  </script>
+</body>
+</html>

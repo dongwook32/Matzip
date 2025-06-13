@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>주간 학식 메뉴</title>
+  <style>
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background: #ffffff;
+      margin: 0;
+      padding: 0;
+    }
+
+    .menu-wrapper {
+      background-color: #ff0000;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .menu-white-box {
+      background: white;
+      height: 400px;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+      width: 70vw;
+      max-width: 900px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .day-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .day-buttons button {
+      width: 35px;
+      height: 35px;
+      font-size: 14px;
+      border: none;
+      background-color: #80cbc4;
+      color: white;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .day-buttons button:hover {
+      background-color: #4db6ac;
+    }
+
+    .day-title {
+      font-size: 22px;
+      font-weight: bold;
+      margin: 15px 0;
+    }
+
+    .menu-table {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      margin: 20px 0;
+      width: 100%;
+    }
+
+    .menu-box {
+      background-color: #b2dfdb;
+      min-width: 150px;
+      flex: 0 0 45%;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      word-break: break-word;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-sizing: border-box;
+    }
+
+    .menu-box h4 {
+      margin: 5px 0;
+      color: #00796b;
+    }
+
+    .menu-box p {
+      margin: 10px 0 0 0;
+      font-size: 16px;
+      white-space: pre-line;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="menu-wrapper">
+    <div class="menu-white-box">
+      <h3>이번 주 식단</h3>
+
+      <div class="day-buttons">
+        <button onclick="setDay(0)">월</button>
+        <button onclick="setDay(1)">화</button>
+        <button onclick="setDay(2)">수</button>
+        <button onclick="setDay(3)">목</button>
+        <button onclick="setDay(4)">금</button>
+      </div>
+
+      <div class="day-title" id="day-title">월요일</div>
+
+      <div class="menu-table">
+        <div class="menu-box" id="menu1">
+          <h4>일품</h4>
+          <p></p>
+        </div>
+        <div class="menu-box" id="menu2">
+          <h4>한식</h4>
+          <p></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const weeklyMenu = [
+      ["월요일",
+        "순살닭갈비\n쌀밥\n순두부찌개\n들름막국수\n치리생채\n깍두기",
+        "카레라이스\n우동장국\n순대김말이강정\n치커리생채\n배추김치"
+      ],
+      ["화요일", "대통령 선거일", "대통령 선거일"],
+      ["수요일",
+        "동육쪽참\n쌀밥\n미역오이냉국\n어묵채소볶음\n숙주물무침\n배추김치",
+        "잔치국수\n후리가케주먹밥\n핫도그\n단무지\n배추김치"
+      ],
+      ["목요일",
+        "제육볶음\n쌀밥\n두부이&양념장\n부추겉절이\n배추김치",
+        "가츠동덮밥\n유부장국\n고구마샐러드\n요구르트\n배추김치"
+      ],
+      ["금요일", "6월 6일 현충일", "6월 6일 현충일"]
+    ];
+
+    let index = 0;
+
+    function updateMenus() {
+      const [day, food1, food2] = weeklyMenu[index];
+      document.getElementById("day-title").textContent = day;
+      document.getElementById("menu1").querySelector("p").textContent = food1;
+      document.getElementById("menu2").querySelector("p").textContent = food2;
+      index = (index + 1) % weeklyMenu.length;
+    }
+
+    function setDay(i) {
+      index = i;
+      updateMenus();
+    }
+
+    updateMenus();
+  </script>
+
+</body>
+</html>

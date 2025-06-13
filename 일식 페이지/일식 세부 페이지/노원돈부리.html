@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>노원돈부리 슬라이더</title>
+  <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+  <!-- 빨간 배너 -->
+  <div class="banner">
+    <button class="back-button" onclick="history.back()">일식 가게 리스트</button>
+  </div>
+  
+  <!-- 슬라이더 컨테이너 -->
+  <div class="slider-container">
+    <div class="slide-track" id="slideTrack">
+      <!-- 클론: 마지막 실제 슬라이드 (더블연어뱃살덮밥) -->
+      <div class="slide">
+        <img src="일식\일식 가게\노원돈부리 메뉴/더블연어뱃살덮밥.jfif" alt="더블연어뱃살덮밥">
+      </div>
+      <!-- 실제 슬라이드들 (1번 ~ 5번) -->
+      <div class="slide">
+        <img src="일식\일식 간판\노원돈부리.jpg" alt="간판">
+      </div>
+      <div class="slide">
+        <img src="일식\일식 가게\노원돈부리 메뉴/등심돈까스.jfif" alt="등심돈까스">
+      </div>
+      <div class="slide">
+        <img src="일식\일식 가게\노원돈부리 메뉴/가츠동.jfif" alt="가츠동">
+      </div>
+      <div class="slide">
+        <img src="일식\일식 가게\노원돈부리 메뉴/더블믹스가츠동.jfif" alt="더블믹스가츠동">
+      </div>
+      <div class="slide">
+        <img src="일식\일식 가게\노원돈부리 메뉴/사케동.jfif" alt="사케동">
+      </div>
+      <div class="slide">
+        <img src="일식\일식 가게\노원돈부리 메뉴/더블연어뱃살덮밥.jfif" alt="더블연어뱃살덮밥">
+      </div>
+      <!-- 클론: 첫 번째 실제 슬라이드 (간판) -->
+      <div class="slide">
+        <img src="일식\일식 간판\노원돈부리.jpg" alt="간판">
+      </div>
+    </div>
+    <!-- 좌우 화살표 버튼 -->
+    <button class="arrow left" id="prevBtn">&#10094;</button>
+    <button class="arrow right" id="nextBtn">&#10095;</button>
+  </div>
+  
+  <!-- 가게 정보 -->
+  <div class="store-info">
+    <h2 class="store-name">노원돈부리</h2>
+    <p class="store-details">
+      주소: 서울 노원구 동일로 1343 동일프라자빌딩<br>
+      운영시간: 11:30 ~ 17:00 / 일요일,월요일 휴무<br>
+      대표메뉴: 가츠동, 사케동<br>
+      전화번호: 02-937-1295
+    </p>
+  </div>
+  
+  <!-- 대표 메뉴 섹션 (이미지 포함) -->
+  <div class="menu-section">
+    <h3 class="menu-section-title">대표 메뉴</h3>
+    <div class="menu-grid">
+      <!-- 메뉴 아이템 1 -->
+      <div class="menu-item">
+        <img class="menu-image" src="일식\일식 가게\노원돈부리 메뉴\등심돈까스.jfif" alt="등심돈까스">
+        <div class="menu-name">등심돈까스</div>
+        <div class="menu-price">₩10,000</div>
+      </div>
+      <!-- 메뉴 아이템 2 -->
+      <div class="menu-item">
+        <img class="menu-image" src="일식\일식 가게\노원돈부리 메뉴\가츠동.jfif" alt="가츠동">
+        <div class="menu-name">가츠동</div>
+        <div class="menu-price">₩10,000</div>
+      </div>
+      <!-- 메뉴 아이템 3 -->
+      <div class="menu-item">
+        <img class="menu-image" src="일식\일식 가게\노원돈부리 메뉴\더블믹스가츠동.jfif" alt="더블믹스가츠동">
+        <div class="menu-name">더블믹스가츠동</div>
+        <div class="menu-price">₩13,000</div>
+      </div>
+      <!-- 메뉴 아이템 4 -->
+      <div class="menu-item">
+        <img class="menu-image" src="일식\일식 가게\노원돈부리 메뉴\사케동.jfif" alt="사케동">
+        <div class="menu-name">사케동</div>
+        <div class="menu-price">₩16,000</div>
+      </div>
+      <!-- 메뉴 아이템 5 -->
+      <div class="menu-item">
+        <img class="menu-image" src="일식\일식 가게\노원돈부리 메뉴\더블연어뱃살덮밥.jfif" alt="더블연어뱃살덮밥">
+        <div class="menu-name">더블연뱃살덮밥</div>
+        <div class="menu-price">₩23,000</div>
+      </div>
+      <!-- 메뉴 아이템 6 -->
+      <div class="menu-item">
+        <img class="menu-image" src="일식\일식 가게\노원돈부리 메뉴\회덮밥.jfif" alt="회덮밥">
+        <div class="menu-name">회덮밥</div>
+        <div class="menu-price">₩14,000</div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 일반 메뉴 섹션 (텍스트 전용, 5열 그리드) -->
+  <div class="normal-menu-section">
+    <br>
+    <h3 class="normal-menu-title">메뉴</h3>
+    <br>
+    <div class="normal-menu-grid">
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">가츠동</div>
+        <div class="normal-menu-price">10,000원</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">에비가츠동</div>
+        <div class="normal-menu-price">11,000원</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">믹스가츠동</div>
+        <div class="normal-menu-price">11,000원</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">등심돈까스</div>
+        <div class="normal-menu-price">10,000원</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">더블가츠동</div>
+        <div class="normal-menu-price">12,000원</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">더블에비가츠동</div>
+        <div class="normal-menu-price">13,000원</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">더블믹스가츠동</div>
+        <div class="normal-menu-price">13,000원</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">사케동</div>
+        <div class="normal-menu-price">16,000원</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">사케낫또동</div>
+        <div class="normal-menu-price">17,000원</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">연어사시미추가</div>
+        <div class="normal-menu-price">13,000원</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">더블사케동</div>
+        <div class="normal-menu-price">20,000원</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">연어뱃살덮밥</div>
+        <div class="normal-menu-price">18,000원</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">더블연어뱃살덮밥</div>
+        <div class="normal-menu-price">23,000원</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">회덮밥</div>
+        <div class="normal-menu-price">14,000원</div>
+      </div>
+      <div class="normal-menu-item">
+        <div class="normal-menu-name">낫또동</div>
+        <div class="normal-menu-price">7,000원</div>
+      </div>
+      
+    </div>
+  </div>
+
+  <div class="directions-section" style="text-align: center;">
+    <br>
+    <h2 class="directions-title" style="color: darkgreen;">찾아오시는 길</h2>
+    <br>
+    <img class="directions-image" src="일식\NaverMap_JapanList\노원돈부리 길찾기.png" width="982" height="487" alt="찾아오시는 길" style="display: block; margin: 0 auto;">
+  </div>
+  <br><br><br><br>
+  
+  <script>
+    const slideTrack = document.getElementById('slideTrack');
+    let slides = document.querySelectorAll('.slide');
+    
+    // 현재 실제 슬라이드 구조: 클론, [슬라이드1, 슬라이드2, ..., 슬라이드5], 클론
+    let currentIndex = 1;
+    
+    function getSlideWidth() {
+      return window.innerWidth / 3;
+    }
+    
+    function updateSlider(animate = true) {
+      const slideWidth = getSlideWidth();
+      const offset = currentIndex * slideWidth - ((window.innerWidth - slideWidth) / 2);
+      slideTrack.style.transition = animate ? "transform 0.5s ease" : "none";
+      slideTrack.style.transform = `translateX(-${offset}px)`;
+      
+      slides.forEach((slide, idx) => {
+        if (idx === currentIndex) {
+          slide.classList.add('active');
+        } else {
+          slide.classList.remove('active');
+        }
+      });
+    }
+    
+    updateSlider(false);
+    
+    function nextSlide() {
+      if (currentIndex < slides.length - 1) {
+        currentIndex++;
+        updateSlider();
+      }
+    }
+    
+    function prevSlide() {
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateSlider();
+      }
+    }
+    
+    slideTrack.addEventListener('transitionend', () => {
+      if (currentIndex === slides.length - 1) {
+        slideTrack.style.transition = "none";
+        currentIndex = 1;
+        updateSlider(false);
+      }
+      if (currentIndex === 0) {
+        slideTrack.style.transition = "none";
+        currentIndex = slides.length - 2;
+        updateSlider(false);
+      }
+    });
+    
+    document.getElementById('nextBtn').addEventListener('click', nextSlide);
+    document.getElementById('prevBtn').addEventListener('click', prevSlide);
+    
+    window.addEventListener('resize', () => {
+      updateSlider(false);
+    });
+  </script>
+</body>
+</html>
